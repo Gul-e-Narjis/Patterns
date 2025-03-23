@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Subject {
-	
-   private List<Observer> observers = new ArrayList<Observer>();
+   private List<Observer> observers = new ArrayList<>();
    private int state;
 
    public int getState() {
@@ -27,6 +26,11 @@ public class Subject {
 
    public void attach(Observer observer){
       observers.add(observer);		
+   }
+
+   // New method to detach an observer
+   public void detach(Observer observer) {
+      observers.remove(observer);
    }
 
    public void notifyAllObservers(){

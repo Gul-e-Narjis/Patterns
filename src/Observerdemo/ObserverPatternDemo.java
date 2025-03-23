@@ -16,12 +16,14 @@ public class ObserverPatternDemo {
     public static void main(String[] args) {
       Subject subject = new Subject();
 
-      new HexaObserver(subject);
-      new Octalobserver(subject);
-      new BinaryObserver(subject);
+      HexaObserver hexObserver = new HexaObserver(subject);
+      Octalobserver octObserver = new Octalobserver(subject);
+      BinaryObserver binObserver = new BinaryObserver(subject);
 
       System.out.println("First state change: 15");	
       subject.setState(15);
+      System.out.println("\nDetaching OctalObserver..."); // Detaching one observer
+      subject.detach(octObserver);
       System.out.println("Second state change: 10");	
       subject.setState(10);
    }
